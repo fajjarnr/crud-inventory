@@ -113,7 +113,7 @@ if (isset($_POST["save"])) {
               <div class="form-group">
                 <label for="nama">Image Barang</label>
                 <img src="img/<?= $data["image"] ?>" width="50px" height="50px"><br>
-                <input type="file" name="image" required />
+                <input type="file" name="image" />
               </div>
               <button type="submit" name="save" class="btn-success" style="width: 97%; margin: 10px 10px;">
                 Update

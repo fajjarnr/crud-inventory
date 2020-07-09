@@ -114,7 +114,7 @@ if(isset($_POST['search'])){
                     <td><?= $row['nama']; ?></td>
                     <td><?= $row['jumlah']; ?></td>
                     <td>Rp. <?= $row['harga']; ?></td>
-                    <td><img src="img/<?= $row['image']; ?>" width="50px" height="50px"></td>
+                    <td><img src="assets/img/<?= $row['image']; ?>" width="50px" height="50px"></td>
                     <td style="text-align: center;">
                       <a href="EditBarang.php?id=<?= $row['id']; ?>">
                         <button class="warning">

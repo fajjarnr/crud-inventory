@@ -75,7 +75,7 @@ function upload()
 	$namaFileBaru .= '.';
 	$namaFileBaru .= $ekstensiGambar;
 
-	move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+	move_uploaded_file($tmpName, 'assets/img/' . $namaFileBaru);
 
 	return $namaFileBaru;
 }
