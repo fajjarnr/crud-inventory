@@ -104,7 +104,7 @@ $agen = query("SELECT * FROM agen");
                     <td><?= $row['nama']; ?></td>
                     <td><?= $row['tlp']; ?></td>
                     <td><?= $row['alamat']; ?></td>
-                    <td>
+                    <td style="text-align: center;">
                       <a href="EditAgen.php?id=<?= $row['id']; ?>">
                         <button class="warning">
                           <i class="fas fa-edit"></i>

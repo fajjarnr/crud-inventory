@@ -99,7 +99,7 @@ $user = query("SELECT * FROM user");
                     <td><?= $row['nama']; ?></td>
                     <td><?= $row['email']; ?></td>
                     <td><?= $row['username']; ?></td>
-                    <td>
+                    <td style="text-align: center;">
                       <a href="EditUser.php?id=<?= $row['id']; ?>">
                         <button class="warning">
                           <i class="fas fa-edit"></i>
