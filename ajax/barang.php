@@ -1,5 +1,6 @@
 <?php
-include 'functions.php';
+
+include '../functions.php';
 
 $keyword = $_GET['keyword'];
 

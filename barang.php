@@ -1,7 +1,15 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+  exit;
+}
+
 include 'functions.php';
 
-$barang = query("SELECT * FROM barang ORDER BY id ASC");
+$barang = query("SELECT * FROM barang");
 
 if(isset($_POST['search'])){
   $barang = search($_POST["keyword"]);
@@ -29,7 +37,7 @@ if(isset($_POST['search'])){
       <div class="top_menu">
         <div class=""></div>
         <div class="home_link">
-          <a href="">
+          <a href="logout.php">
             <span class="icon">
               <i class="fas fa-sign-out-alt"></i>
               <span>Logout</span>

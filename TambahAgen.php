@@ -1,4 +1,18 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+  exit;
+}
+
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+}
+
 include 'functions.php';
 
 if (isset($_POST["save"])) {
@@ -38,7 +52,7 @@ if (isset($_POST["save"])) {
       <div class="top_menu">
         <div class=""></div>
         <div class="home_link">
-          <a href="">
+          <a href="logout.php">
             <span class="icon">
               <i class="fas fa-sign-out-alt"></i>
               <span>Logout</span>

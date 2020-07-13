@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+  exit;
+}
+
 include 'functions.php';
 
 $user = query("SELECT * FROM user");
@@ -8,74 +15,73 @@ $user = query("SELECT * FROM user");
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aplikasi Inventory Barang | Tugas Besa Pemrograman Web</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="top_navbar">
-        <div class="logo">
-          <a href="#">Inventory</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplikasi Inventory Barang | Tugas Besa Pemrograman Web</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="top_navbar">
+      <div class="logo">
+        <a href="#">Inventory</a>
+      </div>
+      <div class="top_menu">
+        <div class=""></div>
+        <div class="home_link">
+          <a href="logout.php">
+            <span class="icon">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </span>
+          </a>
         </div>
-        <div class="top_menu">
-          <div class=""></div>
-          <div class="home_link">
-            <a href="">
-              <span class="icon">
-                <i class="fas fa-sign-out-alt"></i>
-                <span>Logout</span>
-              </span>
-            </a>
-          </div>
+      </div>
+    </div>
+
+    <div class="main_body">
+      <div class="sidebar_menu">
+        <div class="inner__sidebar_menu">
+          <ul>
+            <li>
+              <a href="index.php">
+                <span class="icon"> <i class="fas fa-border-all"></i></span>
+                <span class="list">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="barang.php">
+                <span class="icon"><i class="fas fa-warehouse"></i></span>
+                <span class="list">Daftar Barang</span>
+              </a>
+            </li>
+            <li>
+              <a href="agen.php">
+                <span class="icon"><i class="fas fa-building"></i></span>
+                <span class="list">Daftar Agen</span>
+              </a>
+            </li>
+            <li>
+              <a href="users.php" class="active">
+                <span class="icon"><i class="fas fa-users"></i></span>
+                <span class="list">Pengguna</span>
+              </a>
+            </li>
+            <li>
+              <a href="about.php">
+                <span class="icon"><i class="fas fa-address-card"></i></span>
+                <span class="list">About</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div class="main_body">
-        <div class="sidebar_menu">
-          <div class="inner__sidebar_menu">
-            <ul>
-              <li>
-                <a href="index.php">
-                  <span class="icon"> <i class="fas fa-border-all"></i></span>
-                  <span class="list">Dashboard</span>
-                </a>
-              </li>
-              <li>
-                <a href="barang.php">
-                  <span class="icon"><i class="fas fa-warehouse"></i></span>
-                  <span class="list">Daftar Barang</span>
-                </a>
-              </li>
-              <li>
-                <a href="agen.php">
-                  <span class="icon"><i class="fas fa-building"></i></span>
-                  <span class="list">Daftar Agen</span>
-                </a>
-              </li>
-              <li>
-                <a href="users.php" class="active">
-                  <span class="icon"><i class="fas fa-users"></i></span>
-                  <span class="list">Pengguna</span>
-                </a>
-              </li>
-              <li>
-                <a href="about.php">
-                  <span class="icon"><i class="fas fa-address-card"></i></span>
-                  <span class="list">About</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="container">
+      <div class="container">
         <div class="card">
           <div class="card-header">
             <h1>Daftar Pengguna</h1>
@@ -119,8 +125,9 @@ $user = query("SELECT * FROM user");
           </div>
         </div>
       </div>
-      </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>

@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (isset($_SESSION["login"])) {
+  header("Location: index.php");
+  exit;
+}
+
 include 'functions.php';
 
 if (isset($_POST["login"])) {
@@ -12,8 +19,12 @@ if (isset($_POST["login"])) {
   if (mysqli_num_rows($result) === 1) {
     // cek password
     $row = mysqli_fetch_assoc($result);
-    if (password_verify($password, $row['password'])) {
-      header("location: index.php");
+    if (password_verify($password, $row["password"])) {
+      // set Session
+
+      $_SESSION['login'] = true;
+
+      header("Location: index.php");
       exit;
     };
   }
@@ -34,6 +45,10 @@ if (isset($_POST["login"])) {
 </head>
 
 <body>
+  <?php if (isset($error)) : ?>
+    <p style="color: red;">username / password salah</p>
+  <?php endif; ?>
+
   <div class="login-box">
     <img src="images/avatar.png" class="avatar" />
     <h1 class="login-title">Aplikasi Inventory Barang</h1>

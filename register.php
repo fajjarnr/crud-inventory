@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (isset($_SESSION["login"])) {
+  header("Location: index.php");
+  exit;
+}
+
 include 'functions.php';
 
 if (isset($_POST["register"])) {
@@ -52,7 +59,7 @@ if (isset($_POST["register"])) {
         <input type="password" class="input-register-text" name="password" placeholder="Masukan Password Anda" required />
       </div>
       <div class="form-group-register">
-        <label for="password">Confirm Password</label>
+        <label for="password2">Confirm Password</label>
         <input type="password" class="input-register-text" name="password2" placeholder="Masukan Confirm Password Anda" required />
       </div>
       <button class="btn-auth" type="submit" name="register" value="register">

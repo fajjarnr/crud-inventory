@@ -15,6 +15,6 @@ keyword.addEventListener("keyup", function () {
   };
 
   // get data
-  xhr.open("GET", "./ajax/barang.php?keyword" + keyword.value, true);
+  xhr.open("GET", "/ajax/barang.php?keyword" + keyword.value, true);
   xhr.send();
 });
